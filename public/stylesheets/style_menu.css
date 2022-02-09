@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+    font-family: "Arial Black", sans-serif;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    transform: translate(-50%, -50%);
+}
+
+button {
+    flex: 3;
+
+    height: 100%;
+    max-width: 500px;
+    border: 4px black solid;
+    background-color: white;
+
+    font-size: 1.2em;
+}
+
+button:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    border-color: black;
+}
+
+.container > div {
+    display: flex;
+    align-items: center;
+    width: 50vw;
+    height: 120px;
+    margin: 25px;
+}
+
+.container > div > div {
+    flex: 1;
+    visibility: hidden;
+
+    margin-left: 50px;
+}
+
+#user_data {
+    position: absolute;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    right: 2vh;
+    top: 2vh;
+
+    cursor: pointer;
+}
+
+#user_data:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#username {
+    font-size: 1.8em;
+}

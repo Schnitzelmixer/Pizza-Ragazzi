@@ -1,0 +1,80 @@
+@(title: String)(implicit assetsFinder: AssetsFinder)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image_path/png" href="@assetsFinder.path("images/favicon.png")">
+
+        <link rel="stylesheet" type="text/css" href=@routes.Assets.versioned("stylesheets/style_profile-page.css")>
+        <link rel="stylesheet" type="text/css" href="@assetsFinder.path("stylesheets/style_friendlist.css")">
+        <link rel="stylesheet" type="text/css" href="@assetsFinder.path("stylesheets/style_chat.css")">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src=@routes.Assets.versioned("javascripts/functions_profile-page.js")></script>
+        <script type="text/javascript" src=@routes.Assets.versioned("javascripts/functions_friendlist.js")></script>
+        <script type="text/javascript" src=@routes.Assets.versioned("javascripts/functions_chat.js")></script>
+
+        <title>@title</title>
+    </head>
+
+    <body id="body" onload="setup();
+    refreshChat();">
+            <!--Navigation bar-->
+        <div id="nav-placeholder">@navbar.render(assetsFinder)</div>
+            <!--end of Navigation bar-->
+
+        <div class="wrap">
+            <div class="left_div">
+                <img id="profile-picture" alt="profile-picture" src=@routes.Assets.versioned("images/profile-icon.png")>
+                <form name="userForm">
+                    <h1 id="username">Username</h1>
+                </form>
+                <div id="fileChooser"></div>
+                <br>
+                <div id="mail"></div>
+                <br>
+                <div id="tier"></div>
+                <div id="gesamtpunkte"></div>
+                <div id="highscore"></div>
+                <br>
+                <button id="editProfileButton">Profil bearbeiten</button>
+            </div>
+
+            <div class="middle_div">
+                <h1 id="friends_heading">Freunde</h1>
+                <div id="container_friends">
+                    <div id="loading_friends" class="loading">
+                    </div>
+                    <div id="friends-placeholder">
+                    </div>
+                </div>
+                <br>
+                <label for="addFriendInput" id="addFriendInputLabel">Freund hinzufügen:</label>
+                <input id="addFriendInput" type="text" placeholder="Nutzernamen eingeben...">
+                <br>
+                <button id="addFriendButton" onclick="addFriend()">+</button>
+            </div>
+
+            <div class="right_div">
+                <h1 id="chat_heading">Chat</h1>
+                <label for="chatWithWhoInput" id="chatWithWhoInputLabel">Wem möchtest du schreiben?</label>
+                <br>
+                <input id="chatWithWhoInput" type="text" placeholder="Nutzernamen eingeben...">
+                <button id="chatWithWhoButton">Bestätigen</button>
+                <br>
+                <br>
+                <div id="loading_messages" class="loading"></div>
+                <div id="chatMessages_div">
+                </div>
+                <br>
+                <label for="sendMessageInput"></label>
+                <input id="sendMessageInput" type="text" placeholder="Nachricht schreiben...">
+                <button id="sendMessageButton">Senden</button>
+            </div>
+        </div>
+
+        <button id="backToMyProfileButton" onclick="backToMyProfile()">Zurück</button>
+
+    </body>
+</html>

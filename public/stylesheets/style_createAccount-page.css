@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+    font-family: "Arial Black", sans-serif;
+}
+
+form {
+    margin: auto;
+    width: min-content;
+}
+
+h1 {
+    text-align: center;
+    font-size: 7em;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+}
+
+.inputExceptPasswords {
+    border: 4px black solid;
+}
+
+.inputPasswords {
+    border: 0;
+}
+
+button {
+    width: 49%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border: 0;
+}
+
+.submitButtons:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.submitButtons {
+    display: block;
+    margin: auto;
+}
+
+#createAccount_button {
+    font-size: 115%;
+    text-align: center;
+    width: 267px;
+    height: 45px;
+}
+
+#login_button {
+    width: 210px;
+}
+
+.divPasswordInputs {
+    display: flex;
+    align-items: center;
+    border: 4px black solid;
+}
+
+span {
+    margin: 0 10px;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.error {
+    width: 345px;
+    color: #c8290d;
+    display: none;
+    margin-bottom: -20px;
+}

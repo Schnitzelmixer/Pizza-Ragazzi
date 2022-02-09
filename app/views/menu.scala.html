@@ -1,0 +1,54 @@
+@(title: String)(implicit assetsFinder: AssetsFinder)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" media="screen" href="@assetsFinder.path("stylesheets/style_menu.css")">
+        <link rel="shortcut icon" type="image_path/png" href="@assetsFinder.path("images/favicon.png")">
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/functions_menu.js")"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <title>@title</title>
+    </head>
+    <body onload="setup()">
+            <!--Navigation bar-->
+        <div id="nav-placeholder">@navbar.render(assetsFinder)</div>
+            <!--end of Navigation bar-->
+
+        <div id="user_data" onclick="location.href = '/profile'">
+            <div id="username"></div>
+            <div id="tier_name"></div>
+            <div id="total_points"></div>
+        </div>
+
+        <div class="container">
+            <div id="memory">
+                <button onclick="location.href = '/memory'" type="button">
+                    Memory
+                </button>
+                <div id="memory_description">
+
+                </div>
+            </div>
+
+            <div id="pizzaRush">
+                <button onclick="location.href = '/pizzaRush'" type="button">
+                    Pizza Rush
+                </button>
+                <div id="pizzaRush_description">Beweise dich als Pizza-Bäcker und sammle Punkte!</div>
+            </div>
+
+            <div id="tutorial">
+                <button onclick="location.href = '/tutorial'" type="button">
+                    Tutorial
+                </button>
+                <div id="tutorial_description">
+                    Mache dich mit den Spielmechaniken vertraut
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>

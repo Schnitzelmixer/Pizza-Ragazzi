@@ -1,0 +1,121 @@
+@(title: String)(implicit assetsFinder: AssetsFinder)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" type="image_path/png" href="@assetsFinder.path("images/favicon.png")">
+        <link rel="stylesheet" type="text/css" href="@assetsFinder.path("stylesheets/style_pizzarush.css")">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/functions_pizzarush_classes.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/functions_pizzarush_general.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/functions_pizzarush_miniGames.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/functions_pizzarush_utility.js")"></script>
+
+        <title>@title</title>
+    </head>
+
+    <body onload="loadGameElements()">
+            <!--NAVIGATION BAR ------------->
+        <div id="nav-placeholder">@navbar.render(assetsFinder)</div>
+            <!------------------------------>
+        <audio id="background_music">
+            <source src="@routes.Assets.versioned("sounds/tarantella_napoletana.mp3")">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div id="loading">
+            <img id="loading_image" alt="Loading Pictures..." src=@routes.Assets.versioned("images/LoadingGif_Pizza.gif")>
+            <div id="loading_text">Lade Pizzasimulation...</div>
+        </div>
+
+        <div id="startStop_overlay">
+
+            <div id="startStop_overlay_text">Wilkommen bei Pizzarush</div>
+            <button id="startStop_overlay_button" onclick="manageRushCountdown('rushCountdown')">Starte das Spiel</button>
+            <button onclick="location.href = 'menu'">Zurück zum Menü</button>
+
+        </div>
+
+        <div id="miniGame_layer">
+            <div id="miniGame_window">
+                <div id="miniGame_playArea">
+                    <canvas id="miniGame_canvas"></canvas>
+                </div>
+                <div id="miniGame_sideBar">
+                    <div id="miniGame_sideBar_counter"></div>
+                    <button id="miniGame_sideBar_closeButton" onclick="stopMiniGame()">Stoppe Verarbeitung</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pizza_layer"> </div>
+        <div id="ingredient_layer"> </div>
+
+        <div id="recipeList">Ricetta</div>
+
+        <div id="upper_container">
+            <div id="left_upper_container">
+                <h1 id="rushCountdown"></h1>
+            </div>
+
+            <div id="oven_container"></div>
+
+            <div id="right_upper_container">
+
+                <h1 id="currentlyDisplayedPoints"></h1>
+            </div>
+        </div>
+
+        <section>
+
+            <div id="ingredientSection">
+                <h1>INGREDIENTI</h1>
+
+                <div class="scroll_container">
+
+                        <!--INGREDIENT LIST POPULATED DYNAMICALLY -->
+
+                </div>
+
+            </div>
+
+            <div id="workSurface">
+                <div id="ingredientSurface"></div>
+
+                <div id="lowerSurfaces">
+                    <div id="cuttingSurface">
+                        <input class="miniGameButton" id="startFruitNinja" onclick="startFromChoppingTable()" type="image" src="@routes.Assets.versioned("images/knife.png")" alt="StartCutting"/>
+                    </div>
+
+                    <div id="smashingSurface">
+                        <input class="miniGameButton" id="startWhackAMole" onclick="startFromStampingTable()" type="image" src="@routes.Assets.versioned("images/rollingpin.png")" alt="StartChomping"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="orderSection">
+                <h1>ORDINI</h1>
+
+                <div class="scroll_container">
+
+                        <!--ORDER LIST POPULATED DYNAMICALLY -->
+
+                </div>
+
+                <div id="trash" class="box">
+                    <img src="@routes.Assets.versioned("images/trash_icon.svg")" alt="trashIcon">
+                </div>
+
+            </div>
+
+        </section>
+
+        <div id="lower_container">
+
+
+        </div>
+
+    </body>
+</html>

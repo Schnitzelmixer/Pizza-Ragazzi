@@ -1,0 +1,82 @@
+@(title: String)(implicit assetsFinder: AssetsFinder)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" type="image_path/png" href="@assetsFinder.path("images/favicon.png")">
+        <link rel="stylesheet" type="text/css" href="@assetsFinder.path("stylesheets/style_tutorial.css")">
+
+        <title>@title</title>
+    </head>
+    <body onload="start()">
+            <!--NAVIGATION BAR ------------->
+        <div id="nav-placeholder">@navbar.render(assetsFinder)</div>
+            <!------------------------------>
+        <div id="tutorialWindow">
+            <img id="video" src="" alt="tutorialGif"/>
+            <div id="container_information">
+                <div id="description">Short description</div>
+                <div id="currentPosition">position (0/0)</div>
+            </div>
+            <div id="buttonContainer">
+                <button class="button" id="nextButton" onclick=nextGif()>OK</button>
+                <button class="button" id="backToMenuButton" onclick="window.location.href = `@routes.HomeController.menu()`">
+                    Zum Menü</button>
+            </div>
+        </div>
+        <script>
+                let index = 0;
+                const videos = [];
+                const descriptions = [];
+
+                function start() {
+                    videos.push("@assetsFinder.path("images/tutorial/getting_ingredients.gif")")
+                    descriptions.push("Erhalte eine Zutat indem du auf sie klickst und sie herumziehst");
+
+                    videos.push("@assetsFinder.path("images/tutorial/correct_processing.gif")")
+                    descriptions.push("Ziehe Zutaten zur passenden Verarbeitungsmethode \nTipp. Du kannst so viele Zutaten gleichzeitig bearbeiten wie du willst!");
+
+                    videos.push("@assetsFinder.path("images/tutorial/stomping_ingredients.gif")")
+                    descriptions.push("Klicke schnell auf die Zutaten um sie zu stampfen\nTipp: Stampfe mehrere Zutaten gleichzeitig, sie bilden die Basis für fast alle Pizzen!");
+
+                    videos.push("@assetsFinder.path("images/tutorial/cutting_ingredients.gif")")
+                    descriptions.push("Fahre mit gedrückter Maustaste über die Zutaten um sie zu schneiden\nTipp: Pass auf die faulen Zutaten auf, wenn du sie erwischst musst du warten!")
+
+                    videos.push("@assetsFinder.path("images/tutorial/combine_ingredients.gif")")
+                    descriptions.push("Ziehe Zutaten auf einen ausgerollten Teig, um ihn zu belegen")
+
+                    videos.push("@assetsFinder.path("images/tutorial/baking_pizzas.gif")")
+                    descriptions.push("Ziehe eine belegte Pizza in den Ofen um sie zu backen\nTipp: Behalte die Zeit im Auge, zu lange im Ofen und die Pizza brennt an!")
+
+                    videos.push("@assetsFinder.path("images/tutorial/delivering_pizzas.gif")")
+                    descriptions.push("Ziehe die Pizzen in die passende Bestellung bevor diese abläuft um Punkte zu erhalten\nTipp: Nur gebackene und richtig belegte Pizzen geben alle Punkte!")
+
+                    videos.push("@assetsFinder.path("images/tutorial/receiptbook.gif")")
+                    descriptions.push("Hovere über die Rezeptliste falls du beim Belegen unsicher bist")
+
+                    videos.push("@assetsFinder.path("images/tutorial/memory_hint.gif")")
+                    descriptions.push("Spiele das Memory, um zur nächsten Stufe befördert zu werden und neue Zutaten zu erhalten\nTipp: Sobald du genug Punkte für den Aufstieg hast bekommst du am Ende von Pizzarush einen Hinweis!")
+
+                    nextGif();
+                }
+
+                function nextGif() {
+                    if (index + 1 > descriptions.length) {
+                        index = 0;
+                        document.getElementById("backToMenuButton").style.display = "block";
+                        document.getElementById("description").innerText = "Super, jetzt kennst du alle Grundlagen\nKlicke auf OK falls du dir das Tutorial nochmal ansehen möchtest!"
+                        document.getElementById("video").src = "@assetsFinder.path("images/tutorial/rotating_pizza.gif")"
+                        document.getElementById("currentPosition").style.display = "none";
+                    } else {
+                        document.getElementById("currentPosition").style.display = "block";
+                        document.getElementById("backToMenuButton").style.display = "none";
+                        document.getElementById("video").src = videos[index];
+                        document.getElementById("description").innerText = descriptions[index];
+                        const position = index + 1;
+                        document.getElementById("currentPosition").innerText = "(" + position + "/" + videos.length + ")";
+                        index++;
+                    }
+                }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,312 @@
+* {
+    font-family: "Arial Black", sans-serif;
+    color: black;
+}
+
+.left_div {
+    float: left;
+    width: 33%;
+    padding: 1%;
+    margin: 1%;
+    border: 4px black solid;
+    background-color: #eaeaea;
+
+    text-align: center;
+    max-height: 70vh;
+    overflow: auto;
+}
+
+.middle_div {
+    float: left;
+    width: 20%;
+    padding: 1%;
+    margin: 1%;
+    border: 4px black solid;
+    background-color: #eaeaea;
+}
+
+.right_div {
+    float: left;
+    width: 33%;
+    padding: 1%;
+    margin: 1%;
+    border: 4px black solid;
+    background-color: #eaeaea;
+}
+
+.wrap:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 800px) {
+    .left_div {
+        width: 100%;
+    }
+
+    .middle_div {
+        width: 100%;
+    }
+
+    .right_div {
+        width: 100%;
+    }
+}
+
+.bottom_div {
+    width: 95%;
+    padding: 1%;
+    margin: 1%;
+    background-color: #eaeaea;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    float: left; /* aus irgendeinem Grund werden nur mit float die Achievements im div angezeigt https://stackoverflow.com/questions/2062258/floating-elements-within-a-div-floats-outside-of-div-why */
+}
+
+#profile-picture {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #d2d2d2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 12px;
+}
+
+#editProfileButton {
+    margin: auto;
+    font-size: 100%;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border: 2px black solid;
+}
+
+#editProfileButton:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+#friends_heading {
+    margin-top: 0;
+    text-align: center;
+}
+
+#container_friends {
+    max-height: 39vh;
+}
+
+#addFriendInput {
+    border-color: black;
+    float: left;
+    margin: auto;
+    padding: 5px;
+    width: 80%;
+}
+
+#addFriendButton {
+    font-size: 132%;
+    background-color: white;
+    color: black;
+    margin-left: 5%;
+    border: 2px black solid;
+}
+
+#addFriendButton:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+#backToMyProfileButton {
+    display: none;
+    font-size: 100%;
+    background-color: white;
+    color: black;
+    border: 4px black solid;
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    width: 5%;
+    height: 8%;
+}
+
+#backToMyProfileButton:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+#chat_heading {
+    margin-top: 0;
+    text-align: center;
+}
+
+#chatWithWhoInput {
+    border-color: black;
+    margin: auto;
+    padding: 5px;
+    width: 47%;
+}
+
+#chatWithWhoButton {
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border: 2px black solid;
+}
+
+#chatWithWhoButton:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+#chatMessages_div {
+    max-height: 34vh;
+    overflow-y: auto;
+}
+
+#sendMessageInput {
+    display: none;
+    border: 2px black solid;
+    border-radius: 6px;
+    margin: auto;
+    padding: 5px;
+    width: 85%;
+}
+
+#sendMessageButton {
+    display: none;
+    float: right;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border: 2px black solid;
+    border-radius: 6px;
+}
+
+#sendMessageButton:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+#achievements_heading {
+    margin-left: 1%;
+}
+
+.achievementBox {
+    position: relative;
+    margin: 15px;
+    padding: 15px;
+    background-color: white;
+    float: left;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    font-size: 1.2em;
+    border: 4px black solid;
+}
+
+.achievementBox:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+/*für description hover: https://www.w3schools.com/css/tryit.asp?filename=trycss_tooltip_arrow_top*/
+
+.achievementBox:hover .achievementDescription {
+    visibility: visible;
+}
+
+.achievementBox .achievementDescription { /*sorgt für description hover tooltip*/
+    visibility: hidden;
+    min-width: 5vw;
+    width: auto;
+    max-width: 15vw;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border: 4px black solid;
+    border-radius: 6px;
+    padding: 6px 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -4.4vw;
+}
+
+.achievementBox .achievementDescription::after { /* sorgt für pfeil über description hover*/
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 4vw;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.loading {
+    border: 5px solid #d2d2d2;
+    border-radius: 50%;
+    border-top: 5px solid #000000;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+}
+
+#loading_friends {
+    margin: auto;
+}
+
+#loading_achievements {
+    margin-left: 6%;
+}
+
+#loading_messages {
+    display: none;
+    margin: 10px auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

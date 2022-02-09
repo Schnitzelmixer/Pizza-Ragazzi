@@ -1,0 +1,92 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET         /                                          controllers.HomeController.index(request: Request)
+# An example controller showing how to use dependency injection
+GET         /count                                     controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET         /message                                   controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                              controllers.Assets.versioned(file)
+
+# HTML-PAGES -----------------------------------------------------------------------
+GET         /highscore                                 controllers.HomeController.highscore(request: Request)
+
+GET         /profile                                   controllers.HomeController.profile(request: Request)
+
+GET         /createAccount                             controllers.HomeController.createAccount
+
+GET         /pizzaRush                                 controllers.HomeController.pizzaRush(request: Request)
+
+GET         /menu                                      controllers.HomeController.menu(request: Request)
+
+GET         /memory                                    controllers.HomeController.memory(request: Request)
+
+GET         /tutorial                                  controllers.HomeController.tutorial(request: Request)
+
+
+# MENU -----------------------------------------------------------------------------
+
+GET         /menu/checkForLevelUp                      controllers.MenuController.checkForLevelUp(request: Request)
+
+# HIGHSCORE ------------------------------------------------------------------------
+GET         /highscore/getTableData                    controllers.HighscoreController.getTableData
+
+# PROFILE --------------------------------------------------------------------------
+POST        /profile/updateUsername                    controllers.ProfileController.setUsername(request: Request)
+POST        /profile/uploadProfilePicture              controllers.ProfileController.setProfilePicture(request: Request)
+
+# Use this route for every getUsername call
+GET         /getUsername                               controllers.ProfileController.getUsernameFromDatabase(request: Request)
+GET         /getEmail                                  controllers.ProfileController.getEmailFromSession(request: Request)
+#double getMail??
+GET         /profile/getMail                           controllers.ProfileController.getEmailFromDatabase(request: Request)
+
+GET         /profile/getTotalPoints                    controllers.ProfileController.getGesamtpunkteFromDatabase(request: Request)
+
+GET         /profile/getHighScore                      controllers.ProfileController.getHighscoreFromDatabase(request: Request)
+
+GET         /profile/getTierName                       controllers.ProfileController.getTierNameFromDatabase(request: Request)
+
+GET         /profile/getProfilePic                     controllers.ProfileController.getProfilePictureFromDatabase(request: Request)
+
+POST        /profile/getMessages                       controllers.ProfileController.getMessagesFromDatabase(request: Request)
+
+POST        /profile/sendMessage                       controllers.ProfileController.sendMessage(request: Request)
+
+POST        /profile/addFriend                         controllers.ProfileController.addFriend(request: Request)
+
+# PROFILE-FROM-FRIEND ROUTES --------------------------------------------------------------------------
+POST        /friendGetUsername                         controllers.ProfileController.friendGetUsernameFromDatabase(request: Request)
+POST        /profile/friendGetMail                     controllers.ProfileController.friendGetEmailFromDatabase(request: Request)
+POST        /profile/friendGetTierName                 controllers.ProfileController.friendGetTierNameFromDatabase(request: Request)
+POST        /profile/friendGetTotalPoints              controllers.ProfileController.friendGetGesamtpunkteFromDatabase(request: Request)
+POST        /profile/friendGetHighScore                controllers.ProfileController.friendGetHighscoreFromDatabase(request: Request)
+POST        /profile/friendGetProfilePic               controllers.ProfileController.friendGetProfilePictureFromDatabase(request: Request)
+POST        /friendGetFriendsData                      controllers.ProfileController.friendFriendsData(request: Request)
+
+# Friendlist --------------------------------------------------------------------------
+GET         /getFriendsData                            controllers.ProfileController.getFriendsData(request: Request)
+
+# LOGIN ----------------------------------------------------------------------------
+POST        /login/authenticate                        controllers.LoginController.authenticate(request: Request)
+POST        /login/createAccount                       controllers.LoginController.createAccount(request: Request)
+# LOGOUT
+GET         /logout                                    controllers.LoginController.logout()
+
+# PIZZA-RUSH -----------------------------------------------------------------------
+
+GET         /pizza_rush/get_current_points             controllers.PizzaRushController.getCurrentPointsFromSession(requst: Request)
+POST        /pizza_rush/validate_pizza                 controllers.PizzaRushController.validatePizza(request: Request)
+POST        /pizza_rush/reset_points                   controllers.PizzaRushController.resetPoints(request: Request)
+GET         /pizza_rush/getAvailableIngredients        controllers.PizzaRushController.getAvailableIngredients(request: Request)
+GET         /pizza_rush/getAvailablePizzas             controllers.PizzaRushController.getAvailablePizzas(request: Request)
+POST        /pizza_rush/setPlayerPoints                controllers.PizzaRushController.setPlayerPoints(request: Request)
+
+# MEMORY -----------------------------------------------------------------------------------
+
+GET         /memory/getMemoryIngredients               controllers.MemoryController.getMemoryIngredients(request: Request)
+POST        /memory/setCurrentPlayerTier               controllers.MemoryController.setCurrentPlayerTier(request: Request)

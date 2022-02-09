@@ -1,0 +1,49 @@
+/*Stylesheet nur für darstellung der Freundesliste
+Position im jeweiligen Seitenstylesheet unter container_friends*/
+.friend-list {
+    display: block;
+    margin: 0;
+    padding: 0;
+    min-width: 100px;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    background: #dbdbdb;
+    list-style-type: none;
+    border-radius: 25px;
+}
+
+.friend {
+    min-width: 100px;
+    width: auto;
+    padding-right: 10px;
+    height: 60px;
+    background: #dbdbdb;
+    border-bottom: 2px solid #ececec;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.friend img {
+    width: 45px;
+    height: 45px;
+    border-radius: 30px;
+    border: 2px solid #AAA;
+    object-fit: cover;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.friend .name {
+    font-size: 18px;
+}
+
+.friend.selected {
+    background: #666;
+    color: white;
+}
+
+.friend.selected img {
+    border-color: white;
+}

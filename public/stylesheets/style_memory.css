@@ -1,0 +1,95 @@
+* {
+    font-family: "Arial Black", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+
+    height: 95vh;
+}
+
+.memoryCard > p {
+    margin: 20px;
+}
+
+.memoryCard {
+
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30%;
+    height: 15%;
+
+    min-height: 180px;
+    max-height: 200px;
+    max-width: 200px;
+
+    margin: 10px;
+
+    border: 1px solid black;
+}
+
+#memoryBox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    width: 80vw;
+    max-height: 90vh;
+
+    overflow: auto;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 1.2em;
+}
+
+#end_screen {
+    position: fixed; /* Sit on top of the page content */
+    display: flex; /* Hidden by default */
+    visibility: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with 50% opacity */
+    z-index: 90; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#end_screen_text {
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    width: 50vw;
+}
+
+
+#end_screen > button {
+    font-size: 2em;
+    text-transform: uppercase;
+
+    width: 25vw;
+    height: 10vh;
+    margin-top: 20px;
+
+    border: 4px solid white;
+    background-color: transparent;
+    color: white;
+
+    cursor: pointer;
+}
+
+#end_screen > button:hover {
+
+    background-color: white;
+    color: black;
+}

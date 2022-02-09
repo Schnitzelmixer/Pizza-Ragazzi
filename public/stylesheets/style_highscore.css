@@ -1,0 +1,28 @@
+* {
+    font-family: "Arial Black", sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    min-width: 45%;
+    width: auto;
+    margin: auto;
+}
+
+th, td {
+    padding: 4px;
+    text-align: center;
+    border: 4px black solid;
+}
+
+tr:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+    font-size: 7vw;
+}
+
